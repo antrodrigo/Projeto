@@ -15,16 +15,25 @@ body{
     font-size: 3rem;
     text-align: center;
 }
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    margin-left: 5px;
+}
 
-.botão{
+.botão {
     background-color: white;
     font-family: Inter;
     border: none;
     border-radius: 100px;
-    height: 2.5rem;
-    width: 10rem;
+    height: 3rem;
+    width: 12rem;
     font-size: 1.1rem;
     color: #0B2547;
+    display: inline-block;
+    margin-right: 10px;
 }
 
 .texto_grande{

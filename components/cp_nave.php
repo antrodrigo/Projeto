@@ -27,7 +27,7 @@
         <p class="texto_capacidade">capacidade</p>
     </div>
 
-    <div>
+    <div class="container">
         <button class="botão"> Ver peças</button>
         <button class="botão"> Missão</button>
     </div>
