@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="efdf695d-26d2-4cfd-a6d8-e16d567af81f" name="apus" url="localhost/apus">
+        <fileTransfer mountedRoot="C:\Users\Utilizador\Desktop\APUS2" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>
