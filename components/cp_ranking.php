@@ -22,7 +22,7 @@
 <div class="texto_capacidade">
     <div>
         <p>1º</p>
-        <img src="images/avatar_azul_4.png">
+        <img src="images/avatar_azul.png">
         <p>nome utilizador 1</p>
     </div>
     <div>
@@ -32,17 +32,17 @@
     </div>
     <div>
         <p>3º</p>
-        <img src="../images/avatar_roxo.png">
+        <img src="images/avatar_azul.png">
         <p>nome utilizador 3</p>
     </div>
     <div>
         <p>4º</p>
-        <img src="../images/avatar_verde.png">
+        <img src="images/avatar_verde.png">
         <p>nome utilizador 4</p>
     </div>
     <div>
         <p>5º</p>
-        <img src="../images/avatar_laranja.png">
+        <img src="images/avatar_laranja.png">
         <p>nome utilizador 5</p>
     </div>
     <div>
