@@ -3,9 +3,10 @@
 }
 
 body{
-    background-image: url("../images/fundo.png");
+  background-image: url(../images/fundo.png);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 }
 
 .titulos{
@@ -20,8 +21,8 @@ body{
     font-family: Inter;
     border: none;
     border-radius: 100px;
-    height: 3rem;
-    width: 12rem;
+    height: 2.5rem;
+    width: 10rem;
     font-size: 1.1rem;
     color: #0B2547;
 }
