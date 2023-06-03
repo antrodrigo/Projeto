@@ -18,19 +18,18 @@
     </div>
 
 
+    <div class="foguete">
+        <img class="foguete_img" src="images/nave_2_completa.png">
+    </div>
+
+    <div class="circle">
+        <p class="texto_capacidade">capacidade</p>
+        <p class="texto_650">650</p>
+    </div>
+
     <div class="container">
-        <div class="botao">
-            <!-- conteúdo do botão 1 -->
-            <button class="botão"> Ver peças</button>
-        </div>
-        <div class="botao">
-            <!-- conteúdo do botão 2 -->
-            <button class="botão"> Missão</button>
-        </div>
-        <div class="foguete">
-            <!-- ícone do foguete -->
-            <img class="foguete_img" src="../images/nave_2_completa.png">
-        </div>
+        <button class="botão"> Ver peças</button>
+        <button class="botão"> Missão</button>
     </div>
 
     <div>
