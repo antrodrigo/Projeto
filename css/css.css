@@ -17,10 +17,7 @@ body{
 }
 .container {
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 10vh;
-    margin-left: 5px;
 }
 
 .botão {
@@ -32,7 +29,6 @@ body{
     width: 12rem;
     font-size: 1.1rem;
     color: #0B2547;
-    display: inline-block;
     margin-right: 10px;
 }
 
