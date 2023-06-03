@@ -29,7 +29,7 @@
         </div>
         <div class="foguete">
             <!-- ícone do foguete -->
-            <img class="foguete_img" src="images/nave_2_completa.png">
+            <img class="foguete_img" src="../images/nave_2_completa.png">
         </div>
     </div>
 
