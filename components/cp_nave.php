@@ -18,11 +18,12 @@
     </div>
 
 <div class="container">
+    <img class="nave" src="images/nave_2_completa.png">
     <div class="button-container">
         <button class="botão"> Ver peças</button>
         <button class="botão"> Missão</button>
     </div>
-        <img class="nave" src="images/nave_2_completa.png">
+
 </div>
 
 
