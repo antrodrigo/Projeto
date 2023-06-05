@@ -17,19 +17,18 @@
         <h1 class="titulos"> NAVE </h1>
     </div>
 
-
-    <div class="foguete">
-        <img class="foguete_img" src="images/nave_2_completa.png">
+<div class="container">
+    <div class="button-container">
+        <button class="botão"> Ver peças</button>
+        <button class="botão"> Missão</button>
     </div>
+        <img class="nave" src="images/nave_2_completa.png">
+</div>
+
 
     <div class="circle">
         <p class="texto_capacidade">capacidade</p>
         <p class="texto_650">650</p>
-    </div>
-
-    <div class="container">
-        <button class="botão"> Ver peças</button>
-        <button class="botão"> Missão</button>
     </div>
 
     <div>

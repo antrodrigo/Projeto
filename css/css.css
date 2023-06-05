@@ -2,25 +2,29 @@
     font-family: "Inter";
 }
 
-body{
+body {
     background-image: url(../images/fundo.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
-.titulos{
+.titulos {
     color: white;
     font-family: "Venus Plant";
     font-size: 3rem;
     text-align: center;
 }
+
 .container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 10vh;
-    margin-left: 5px;
+}
+
+.button-container{
+    display: flex;
+    flex-direction: column;
 }
 
 .botão {
@@ -34,16 +38,21 @@ body{
     color: #0B2547;
     display: inline-block;
     margin-right: 10px;
+    margin-bottom: 10px;
+}
+.nave{
+    width: 200px;
+    height: auto;
 }
 
-.texto_grande{
+.texto_grande {
     font-family: Inter;
     font-size: 1.2rem;
     text-align: center;
     color: white;
 }
 
-.setas{
+.setas {
     font-family: Inter;
     font-size: 1.5rem;
     color: white;
@@ -53,7 +62,7 @@ body{
 
 }
 
-.link{
+.link {
     color: white;
     text-align: center;
     font-size: 1.2rem;
@@ -61,6 +70,7 @@ body{
 
 element.style {
 }
+
 .circle {
     display: flex;
     justify-content: center;
@@ -74,7 +84,8 @@ element.style {
     margin-left: 158px;
     font-weight: bold;
 }
-.texto_650{
+
+.texto_650 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,16 +94,15 @@ element.style {
 }
 
 
-
-.texto_capacidade{
+.texto_capacidade {
     color: white;
 }
 
-.texto_nomedoutilizador{
+.texto_nomedoutilizador {
     color: white;
 }
 
-.texto_xp{
+.texto_xp {
     color: white;
     background-color: #4DE86F;
     border-radius: 25px;
@@ -101,11 +111,11 @@ element.style {
 }
 
 
-
-.texto_nave{
+.texto_nave {
     color: white;
 }
-.opçao_jogo{
+
+.opçao_jogo {
     background-color: #8F8F8F;
     color: white;
     border-radius: 20px;
@@ -149,7 +159,7 @@ a:hover {
     margin-right: 10px;
 }
 
-.imagem_avatar{
+.imagem_avatar {
     height: 20rem;
     width: 25rem;
 }
@@ -172,19 +182,18 @@ a:hover {
 }
 
 
-
-.meu_perfil_elemento{
+.meu_perfil_elemento {
     margin-right: 1rem;
     margin-left: 2rem;
 
 }
 
-.container_nave{
+.container_nave {
     border-radius: 25px;
     border: 2px solid #8F8F8F;
 }
 
-.div_nave{
+.div_nave {
     background-color: #9FA2B2;
     border-radius: 40px;
     display: flex;
