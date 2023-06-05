@@ -36,13 +36,13 @@ body {
     font-size: 1.1rem;
     color: #0B2547;
     display: inline-block;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    margin-left: 5px;
+    margin-right: 10rem;
+    margin-bottom: 10rem;
+    margin-left: 5rem;
     font-weight: bold;
 }
 .nave{
-    width: 150px;
+    width: 150rem;
     height: auto;
 }
 
@@ -76,13 +76,13 @@ element.style {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 70px;
-    height: 70px;
+    width: 70rem;
+    height: 70rem;
     border-radius: 50%;
     background-color: #0B2547;
     color: white;
-    font-size: 17px;
-    margin-left: 158px;
+    font-size: 17rem;
+    margin-left: 158rem;
     font-weight: bold;
 }
 
@@ -106,7 +106,7 @@ element.style {
 .texto_xp {
     color: white;
     background-color: #4DE86F;
-    border-radius: 25px;
+    border-radius: 25rem;
     width: 7rem;
     height: 3rem;
 }
@@ -119,8 +119,8 @@ element.style {
 .opçao_jogo {
     background-color: #8F8F8F;
     color: white;
-    border-radius: 20px;
-    border: 1px solid #8F8F8F;
+    border-radius: 20rem;
+    border: 1rem solid #8F8F8F;
 
 }
 
@@ -139,7 +139,7 @@ a:hover {
     border: none;
     height: 2rem;
     width: 16rem;
-    font-size: 15px;
+    font-size: 15rem;
 }
 
 ::placeholder {
@@ -148,8 +148,8 @@ a:hover {
 
 .avatar-selector img {
     display: none;
-    width: 400px;
-    height: 400px;
+    width: 400rem;
+    height: 400rem;
 }
 
 .avatar-selector img.active {
@@ -157,7 +157,7 @@ a:hover {
 }
 
 .navigation button {
-    margin-right: 10px;
+    margin-right: 10rem;
 }
 
 .imagem_avatar {
@@ -190,13 +190,13 @@ a:hover {
 }
 
 .container_nave {
-    border-radius: 25px;
-    border: 2px solid #8F8F8F;
+    border-radius: 25rem;
+    border: 2rem solid #8F8F8F;
 }
 
 .div_nave {
     background-color: #9FA2B2;
-    border-radius: 40px;
+    border-radius: 40rem;
     display: flex;
     margin-left: 0.2rem;
     margin-right: 0.2rem;
@@ -215,9 +215,9 @@ a:hover {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 14rem 16rem;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 18rem;
 }
 
 /* Estilos para os ícones ativos */
