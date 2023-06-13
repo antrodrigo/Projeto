@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Venus+Plant&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="./css/css.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
 </head>
 <body>
 

@@ -8,47 +8,61 @@ $link = new_db_connection();
 <h1 class="titulos">AVATAR</h1>
 <p class="texto_grande">ESCOLHE O TEU AVATAR!</p>
 
-<?php
-// Consulta para buscar os avatares
-$query = "SELECT * FROM avatar";
-$result = $link->query($query);
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <?php
+        // Consulta para obter a lista de avatares (substitua 'tabela_avatares' pelo nome correto da tabela)
+        $query = "SELECT * FROM avatar";
+        $resultado = mysqli_query($link, $query);
 
-// Verifica se há avatares disponíveis
-if ($result->num_rows > 0) {
-    $avatares = $result->fetch_all(MYSQLI_ASSOC);
-    $totalAvatares = count($avatares);
+        $active = true; // Variável para determinar a classe 'active' para o primeiro item do carrossel
+        while ($avatar = mysqli_fetch_assoc($resultado)) {
+            $caminho_imagem = "images/avatar_" . $avatar['ID'] . ".png";
+            echo '<div class="carousel-item' . ($active ? ' active' : '') . '">';
+            echo '<img class="d-block w-100" src="' . $caminho_imagem . '" alt="Avatar">';
+            echo '</div>';
 
-    // Verifica se a requisição foi feita pelo usuário para atualizar o avatar
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $avatarIndex = $_POST["avatarIndex"];
-    } else {
-        // Define o índice inicial do avatar
-        $avatarIndex = 0;
-    }
+            $active = false; // Define a classe 'active' para o primeiro item do carrossel apenas
+        }
+        ?>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
 
-    // Exibe o avatar atual
-    $avatarAtual = $avatares[$avatarIndex];
-    $avatarId = $avatarAtual['ID'];
-    $avatarImagem = $avatarAtual['imagem'];
+<!-- Seu código HTML existente -->
 
-    echo "<img src='$avatarImagem'  width='100' height='100'><br>";
+<form class="center" action="sc_guardar_avatar.php" method="POST">
+    <!-- Input oculto para armazenar o ID do avatar escolhido -->
+    <input type="hidden" name="avatar_id" id="avatar_id" value="">
+    <!-- Botão de envio do formulário -->
+    <button type="submit" class="btn-continuar botão">Continuar -></button>
+</form>
 
-    // Exibe as setas para navegar entre os avatares
-    echo "<form action='../scripts/sc_selecionar_avatar.php' method='post'>";
-    echo "<input type='hidden' name='avatarIndex' value='$avatarIndex'>";
-    echo "<input type='submit' name='anterior' value='&#8592;'>";
-    echo "<input type='submit' name='proximo' value='&#8594;'>";
-    echo "</form>";
 
-    // Exibe o botão "Continuar" para enviar a escolha do usuário
-    echo "<form action='../scripts/sc_processar_escolha.php' method='post'>";
-    echo "<input type='hidden' name='avatar' value='$avatarId'>";
-    echo "<input class='botão' type='submit' value='Continuar ->'>";
-    echo "</form>";
-} else {
-    echo "Nenhum avatar encontrado.";
-}
 
-$link->close();
-?>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script src="../js/next_avatar.js"></script>
+<script src="../scripts/sc_guardar_avatar.php"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
