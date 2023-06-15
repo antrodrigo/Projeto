@@ -1,30 +1,30 @@
 <?php
 require_once "../connections/connection.php";
 //var_dump($_POST);
-if (isset($_POST["user"]) && isset($_POST["password"])) {
-    $login = $_POST['user'];
+if (isset($_POST["username"]) && isset($_POST["password"])) {
+    $login = $_POST['username'];
     $password = $_POST['password'];
 
     $link = new_db_connection();
 
     $stmt = mysqli_stmt_init($link);
 
-    $query = "SELECT user, password_hash, ref_perfis, id_utilizadores FROM utilizadores WHERE user LIKE ?";
+    $query = "SELECT username, hash, ref_id_perfil, ref_id_avatar FROM utilizadores WHERE username LIKE ?";
 
     if (mysqli_stmt_prepare($stmt, $query)) {
-        mysqli_stmt_bind_param($stmt, 's', $user);
+        mysqli_stmt_bind_param($stmt, 's', $username);
 
         if (mysqli_stmt_execute($stmt)) {
 
-            mysqli_stmt_bind_result($stmt, $user, $password_hash, $perfil, $id_utilizadores);
+            mysqli_stmt_bind_result($stmt, $username, $hash, $ref_id_perfil, $ref_id_avatar);
 
             if (mysqli_stmt_fetch($stmt)) {
-                if (password_verify($password, $password_hash)) {
+                if (password_verify($password, $hash)) {
                     // Guardar sessão de utilizador
                     session_start();
-                    $_SESSION["user"] = $user;
-                    $_SESSION["ref_perfil"] = $perfil;
-                    $_SESSION["id_utilizadores"] = $id_utilizadores;
+                    $_SESSION["user"] = $username;
+                    $_SESSION["ref_id_perfil"] = $ref_id_perfil;
+                    $_SESSION["ref_id_avatar"] = $ref_id_avatar;
 
                     // Feedback de sucesso
                     header("Location: ../index.php");

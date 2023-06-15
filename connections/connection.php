@@ -12,7 +12,7 @@ function new_db_connection()
     } else {
         $hostname = 'labmm.clients.ua.pt';
         $username = "deca_23_BDTSS_p_web";
-        $password = "xxxxxxx";
+        $password = "Cu2nv8k2";
         $dbname = "deca_23_BDTSS_p";
     }
 

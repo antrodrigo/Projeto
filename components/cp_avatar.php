@@ -36,7 +36,7 @@ $link = new_db_connection();
     </a>
 </div>
 
-<!-- Seu código HTML existente -->
+
 
 <form class="center" action="sc_guardar_avatar.php" method="POST">
     <!-- Input oculto para armazenar o ID do avatar escolhido -->
