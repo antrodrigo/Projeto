@@ -8,11 +8,11 @@ function new_db_connection()
         $hostname = 'localhost';
         $username = "root";
         $password = "";
-        $dbname = "deca_23_bdtss_63";
+        $dbname = "deca_23_BDTSS_63";
     } else {
         $hostname = 'labmm.clients.ua.pt';
         $username = "deca_23_BDTSS_p_web";
-        $password = "Cu2nv8k2";
+        $password = "xxxxxxx";
         $dbname = "deca_23_BDTSS_p";
     }
 
@@ -30,4 +30,5 @@ function new_db_connection()
     // Return the link
     return $local_link;
 }
+//new_db_connection();
 

@@ -1,43 +1,55 @@
 <?php
-// Verifique se o campo "id_avatar" existe no formulário
-if (isset($_POST["id_avatar"])) {
-    $ID = $_POST["id_avatar"];
-    $IMAGEM = $_POST["imagem"];
+require_once "../connections/connection.php";
+session_start(); // Iniciar a sessão
 
-    // Crie uma nova conexão com o banco de dados
+if (isset($_POST["id_avatar"])) {
+    $avatarId = $_POST["id_avatar"];
+
     $link = new_db_connection();
 
-    // Crie uma declaração preparada
-    $stmt = mysqli_stmt_init($link);
+    // Verificar se o avatar existe
+    $query_avatar = "SELECT id_avatar FROM avatar WHERE id_avatar = ?";
+    $stmt_avatar = mysqli_stmt_init($link);
 
-    // Defina a consulta SQL para atualizar o ID do avatar escolhido na tabela usuarios
-    $query = "UPDATE usuarios SET id_avatar = ? WHERE id = ?";
+    if (mysqli_stmt_prepare($stmt_avatar, $query_avatar)) {
+        mysqli_stmt_bind_param($stmt_avatar, 'i', $avatarId);
+        mysqli_stmt_execute($stmt_avatar);
+        mysqli_stmt_store_result($stmt_avatar);
+        $avatarExists = mysqli_stmt_num_rows($stmt_avatar) > 0;
+        mysqli_stmt_close($stmt_avatar);
 
-    if (mysqli_stmt_prepare($stmt, $query)) {
-        // Vincule os parâmetros
-        mysqli_stmt_bind_param($stmt, "ii", $ID, $ID_USUARIO);
+        if ($avatarExists) {
+            // Avatar existe, atualizar o ID do avatar para o usuário recém-registrado
+            $userId = $_SESSION['id_utilizador']; // Obtenha o ID do usuário recém-registrado
 
-        // Execute a declaração preparada
-        if (!mysqli_stmt_execute($stmt)) {
-            echo "Error: " . mysqli_stmt_error($stmt);
+            $query_update = "UPDATE utilizadores SET avatar_id_avatar = ? WHERE id_utilizador = ?";
+            $stmt_update = mysqli_stmt_init($link);
+
+            if (mysqli_stmt_prepare($stmt_update, $query_update)) {
+                mysqli_stmt_bind_param($stmt_update, 'ii', $avatarId, $userId);
+
+                if (mysqli_stmt_execute($stmt_update)) {
+                    header("Location: ../login.php");
+
+                } else {
+                    echo "Erro ao associar o avatar ao usuário: " . mysqli_stmt_error($stmt_update);
+                }
+
+                mysqli_stmt_close($stmt_update);
+            } else {
+                echo "Erro na preparação da declaração: " . mysqli_error($link);
+            }
+        } else {
+            echo "O avatar selecionado não existe.";
         }
-
-        // Feche a declaração
-        mysqli_stmt_close($stmt);
     } else {
-        echo "Error description: " . mysqli_error($link);
+        echo "Erro na consulta do avatar: " . mysqli_error($link);
     }
 
-    // Feche a conexão com o banco de dados
     mysqli_close($link);
-
-    // Redirecione o usuário para a página index.php
-    header("Location: ../index.php");
-    exit(); // Certifique-se de incluir exit() para interromper a execução do script após o redirecionamento
+} else {
+    echo "ID do avatar não foi fornecido.";
 }
 ?>
-
-
-
 
 

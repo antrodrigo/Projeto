@@ -1,37 +1,74 @@
 <?php
 require_once "../connections/connection.php";
-var_dump($_POST);
-if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["login"]) && isset($_POST["password"])){
-    $nome = $_POST['name'];
+
+if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["username"]) && isset($_POST["password"])) {
+    $nome = $_POST['nome'];
     $email = $_POST['email'];
-    $login = $_POST['login'];
+    $username = $_POST ['username'];
     $password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
     $link = new_db_connection();
 
+    // Verifica se o usuário já existe na BD pelo email ou login
+    $query = "SELECT * FROM utilizadores WHERE email = ? OR username = ?";
     $stmt = mysqli_stmt_init($link);
-    // Antes de inserir deve fazer-se uma consulta à BD para verificar se o username ou email já existem na BD
-
-    $query = "INSERT INTO utilizadores (nome,login, email, password_hash) VALUES (?,?,?,?)";
-
     if (mysqli_stmt_prepare($stmt, $query)) {
-        mysqli_stmt_bind_param($stmt, 'ssss', $nome, $login, $email, $password_hash);
-
-        // Devemos validar também o resultado do execute!
+        mysqli_stmt_bind_param($stmt, 'ss', $email, $username);
         if (mysqli_stmt_execute($stmt)) {
-            // Acção de sucesso
-            header("Location: ../index.php");
+            $result = mysqli_stmt_get_result($stmt);
+            if (mysqli_num_rows($result) > 0) {
+                // Se o usuário já existir na BD, exibe uma mensagem de erro
+                header("Location: ../registo.php?msg=2");
+                exit;
+            }
         } else {
-            // Acção de erro
-            echo "Error:" . mysqli_stmt_error($stmt);
+            // Ação de erro
+            echo "Erro:" . mysqli_stmt_error($stmt);
+            exit;
         }
     } else {
-        // Acção de erro
-        echo "Error:" . mysqli_error($link);
+        // Ação de erro
+        echo "Erro:" . mysqli_error($link);
+        exit;
+    }
+    mysqli_stmt_close($stmt);
+
+    // Insere o novo usuário na BD
+    $stmt = mysqli_stmt_init($link);
+    $query = "INSERT INTO utilizadores (nome, email, username, password_hash) VALUES (?,?,?,?)";
+    if (mysqli_stmt_prepare($stmt, $query)) {
+        mysqli_stmt_bind_param($stmt, 'ssss', $nome, $email, $username, $password_hash);
+        if (mysqli_stmt_execute($stmt)) {
+            // Redireciona o usuário para a página de avatar se o registro foi bem-sucedido
+            $userId = mysqli_insert_id($link); // Obtém o ID do usuário recém-inserido
+
+            // Inicia a sessão
+            session_start();
+
+            // Define a chave 'id_utilizador' na variável $_SESSION
+            $_SESSION['id_utilizador'] = $userId;
+
+            header("Location:../avatar.php?msg=3");
+            exit;
+        } else {
+            // Ação de erro
+            echo "Erro:" . mysqli_stmt_error($stmt);
+            exit;
+        }
+    } else {
+        // Ação de erro
+        echo "Erro:" . mysqli_error($link);
+        exit;
     }
     mysqli_stmt_close($stmt);
     mysqli_close($link);
+
 } else {
     echo "Campos do formulário por preencher";
 }
+?>
+
+
+
+
 

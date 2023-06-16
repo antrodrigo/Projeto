@@ -17,9 +17,9 @@ $link = new_db_connection();
 
         $active = true; // Variável para determinar a classe 'active' para o primeiro item do carrossel
         while ($avatar = mysqli_fetch_assoc($resultado)) {
-            $caminho_imagem = "images/avatar_" . $avatar['ID'] . ".png";
+            $caminho_imagem = "images/avatar_" . $avatar['id_avatar'] . ".png";
             echo '<div class="carousel-item' . ($active ? ' active' : '') . '">';
-            echo '<img class="d-block w-100" src="' . $caminho_imagem . '" alt="Avatar">';
+            echo '<img class="d-block w-100" src="' . $caminho_imagem . '" alt="Avatar" data-avatar-id="' . $avatar['id_avatar'] . '">';
             echo '</div>';
 
             $active = false; // Define a classe 'active' para o primeiro item do carrossel apenas
@@ -36,25 +36,33 @@ $link = new_db_connection();
     </a>
 </div>
 
-
-
-<form class="center" action="sc_guardar_avatar.php" method="POST">
-    <!-- Input oculto para armazenar o ID do avatar escolhido -->
-    <input type="hidden" name="avatar_id" id="avatar_id" value="">
-    <!-- Botão de envio do formulário -->
-    <button type="submit" class="btn-continuar botão">Continuar -></button>
+<form action="scripts/sc_guardar_avatar.php" method="POST">
+    <!-- Campos do formulário (nome, email, username, password, etc.) -->
+    <input type="hidden" name="id_avatar" id="id_avatar" value="">
+    <button type="submit" class="botão">Continuar -></button>
 </form>
-
-
-
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-<script src="../js/next_avatar.js"></script>
-<script src="../scripts/sc_guardar_avatar.php"></script>
+<script>
+    $(document).ready(function() {
+        $('.carousel').carousel();
 
+        $('.carousel-control-prev').click(function() {
+            $('.carousel').carousel('prev');
+        });
 
+        $('.carousel-control-next').click(function() {
+            $('.carousel').carousel('next');
+        });
 
+        // Capturar o ID do avatar selecionado quando o formulário for enviado
+        $('form').submit(function() {
+            var avatarId = $('.carousel-item.active img').data('avatar-id');
+            $('#id_avatar').val(avatarId);
+        });
+    });
+</script>
 
 
 
