@@ -14,8 +14,8 @@ while ($row = mysqli_fetch_assoc($resultado)) {
 ?>
 
 <h1 class="titulos">PECAS</h1>
-<p class="texto_grande">QUANTO MELHOR AS TUAS PEÇAS, MAIS PESSOAS CONSEGUIRÁS SALVAR</p>
-<section>
+<p class="texto_grande">QUANTO MELHORES AS TUAS PEÇAS, MAIS PESSOAS CONSEGUIRÁS SALVAR</p>
+
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         <?php
@@ -28,7 +28,7 @@ while ($row = mysqli_fetch_assoc($resultado)) {
             $imgAtiva = 'images/' . $peca['img_ativa']; // Caminho completo da imagem ativa
             $imgBloq = 'images/' . $peca['img_bloq']; // Caminho completo da imagem bloqueada
             $cadeado_bloq = 'images/cadeado_bloqueado.png';
-            $cadeado_desbloq= 'images/cadeado_desbloqueado.png';
+            $cadeado_desbloq= 'images/cadeado_desbloc.png';
 
 
 
@@ -70,7 +70,6 @@ while ($row = mysqli_fetch_assoc($resultado)) {
         });
     });
 </script>
-</section>
 
 
 
