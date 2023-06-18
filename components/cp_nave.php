@@ -27,18 +27,20 @@
 </div>
 
 
-    <div class="circle">
-        <p class="texto_capacidade">capacidade</p>
-        <p class="texto_650">650</p>
-    </div>
-
-    <div>
-        <img src="images/alavanca.png">
-    </div>
-
-    <div>
-        <img src="images/botoes.png">
-    </div>
+<div class="div_central_comandos">
+        <div class="ponteiro">
+            <img src="images/ponteiro.png">
+        </div>
+        <div class="alavanca_1">
+            <img src="images/alavanca_verde.png">
+        </div>
+        <div class="alavanca_2">
+            <img src="images/alavanca_vermelha.png">
+        </div>
+        <div class="botoes">
+            <img src="images/botoes.png">
+        </div>
+</div>
 </main>
 
 </body>

@@ -6,5 +6,8 @@
 <!-- Pecas -->
 <?php include_once "./components/cp_pecas.php" ?>
 
+<!-- Navbar -->
+<?php include_once "./components/cp_navbar.php" ?>
+
 
 
